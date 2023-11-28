@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Spaces</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <link rel=stylesheet
+        href=https://web-test.leighhack.org/css/leighhack.min.4d84caa1fa6de0b3253d5ffdde20e14609fa2683b065b0abca10fe2a24719839.css
+        integrity="sha256-TYTKofpt4LMlPV/93iDhRgn6JoOwZbCryhD+KiRxmDk=" crossorigin=anonymous>
+    <style>
+
+        img#space-logo {
+            max-height: 200px;
+        }
+        div.space-box {
+            min-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="space-block">
+        <div class="column is-one-quarter">
+            <div class="box space-box">
+                <h4 id="space-name"></h3>
+                <img id="space-logo" class="is-centered" src="">
+                <p>Distance: <span id="space-distance"></span>km</p>
+            </div>
+        </div>
+    </template>
+    <section class="section">
+        <h1>Other Local Hackspaces</h1>
+        <div class="container content">
+            <div class="columns is-centered is-multiline" id="spaces"></div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $.getJSON('/local_spaces.json', function (data) {
+                const spaces = Array.from(data).sort((a, b) => a['data']['distance'] - b['data']['distance']);
+                spaces.forEach(function (val, indx) {
+                    var obj = $($("template#space-block").html());
+                    obj.find('#space-name').html(val['data']['space']);
+                    obj.find('#space-distance').html(val['distance']);
+                    obj.find('#space-logo').attr('src', val['data']['logo']);
+                    $('div#spaces').append(obj);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

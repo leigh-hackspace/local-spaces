@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "local-spaces"
+version = "0.0.1"
+description = "A SpaceAPI tool to show other hackspaces' status within a defined distance"
+authors = ["Andrew Williams <andy@tensixtyone.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "local_spaces"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^3.0.0"
+requests = "^2.31.0"
+prometheus-flask-exporter = "^0.23.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
