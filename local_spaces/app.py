@@ -18,7 +18,7 @@ def create_app():
             "TEMPLATES_AUTO_RELOAD": True,
             "LOCALSPACES_SPACEAPI_ENDPOINT": "https://api.spaceapi.io",
             "LOCALSPACES_LOCAL_ENDPOINT": "https://api.leighhack.org/space.json",
-            "LOCALSPACES_DISTANCE": 450,
+            "LOCALSPACES_DISTANCE": 260,
         }
     )
     app.config.from_prefixed_env()
