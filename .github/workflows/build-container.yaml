@@ -28,5 +28,5 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/user-tweaker:${{ github.ref_name }}
-            ghcr.io/${{ github.repository_owner }}/user-tweaker:latest
+            ghcr.io/${{ github.repository_owner }}/local-spaces:${{ github.ref_name }}
+            ghcr.io/${{ github.repository_owner }}/local-spaces:latest
