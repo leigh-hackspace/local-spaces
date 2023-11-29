@@ -26,4 +26,5 @@ docker pull ghcr.io/leigh-hackspace/local-spaces:latest
 | Variable Name | Default Value | Required? | Description |
 |---------------|---------------|-|------------|
 | `LOCALSPACES_DISTANCE` | `None` | **Yes** |Maximum distance to search for hackspaces |
-| `LOCALSPACES_SPACEAPI_ENDPOINT` | `None` | **Yes** |API endpoint for your hackspace's Space API endpoint | 
+| `LOCALSPACES_LOCAL_ENDPOINT` | `None` | **Yes** |API endpoint for your hackspace's Space API endpoint | 
+| `LOCALSPACES_SPACEAPI_ENDPOINT` | `https://api.spaceapi.io` | No |API endpoint for the aggregated Space API | 
