@@ -14,10 +14,10 @@
     <style>
 
         img#space-logo {
-            max-height: 200px;
+            max-height: 75px;
         }
         div.space-box {
-            min-height: 300px;
+            min-height: 250px;
         }
     </style>
 </head>
@@ -26,9 +26,12 @@
     <template id="space-block">
         <div class="column is-one-quarter">
             <div class="box space-box">
-                <h4 id="space-name"></h3>
-                <img id="space-logo" class="is-centered" src="">
-                <p>Distance: <span id="space-distance"></span>km</p>
+                <p><b id="space-name"></b></p>
+                <!--<figure class="image is-inline-block">
+                    <img id="space-logo" src="https://unsplash.it/64"/>
+                </figure>-->
+                <p id="space-status"></p>
+                <p>Distance: <b id="space-distance"></b> km</p>
             </div>
         </div>
     </template>
@@ -45,8 +48,16 @@
                 spaces.forEach(function (val, indx) {
                     var obj = $($("template#space-block").html());
                     obj.find('#space-name').html(val['data']['space']);
-                    obj.find('#space-distance').html(val['distance']);
+                    obj.find('#space-distance').html(Math.round(val['distance'] * 100) / 100);
+
+                    let status = 'Closed';
+                    if (val['data']['state']['open']) {
+                        status = 'Open';
+                    }
+                    obj.find('#space-status').html(status);
+
                     obj.find('#space-logo').attr('src', val['data']['logo']);
+                    obj.fin
                     $('div#spaces').append(obj);
                 });
             });

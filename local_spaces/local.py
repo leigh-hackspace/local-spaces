@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, current_app
 from math import radians, cos, sin, asin, sqrt
 import requests
+from cachetools.func import ttl_cache
 
 local = Blueprint(
     "local", __name__, template_folder="templates", static_folder="static"
@@ -27,6 +28,7 @@ def index():
 
 
 @local.route("/local_spaces.json")
+@ttl_cache(ttl=1800)
 def spaces():
     # Get the local hackspace Space JSON
     resp = requests.get(current_app.config.get("LOCALSPACES_LOCAL_ENDPOINT"))
@@ -63,4 +65,4 @@ def spaces():
                     space['distance'] = distance
                     spaces.append(space)
 
-    return spaces
+    return sorted(spaces, key=lambda d: d['distance'])

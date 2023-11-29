@@ -15,9 +15,10 @@ def create_app():
             "SECRET_KEY": secrets.token_hex(64),
             "TESTING": False,
             "DEBUG": False,
+            "TEMPLATES_AUTO_RELOAD": True,
             "LOCALSPACES_SPACEAPI_ENDPOINT": "https://api.spaceapi.io",
             "LOCALSPACES_LOCAL_ENDPOINT": "https://api.leighhack.org/space.json",
-            "LOCALSPACES_DISTANCE": 300,
+            "LOCALSPACES_DISTANCE": 450,
         }
     )
     app.config.from_prefixed_env()
