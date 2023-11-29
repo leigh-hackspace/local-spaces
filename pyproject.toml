@@ -15,6 +15,10 @@ prometheus-flask-exporter = "^0.23.0"
 cachetools = "^5.3.2"
 
 
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+ruff = "^0.1.6"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
