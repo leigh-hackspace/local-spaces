@@ -8,35 +8,29 @@
     <title>Local Spaces</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
-    <link rel=stylesheet
-        href=https://web-test.leighhack.org/css/leighhack.min.4d84caa1fa6de0b3253d5ffdde20e14609fa2683b065b0abca10fe2a24719839.css
-        integrity="sha256-TYTKofpt4LMlPV/93iDhRgn6JoOwZbCryhD+KiRxmDk=" crossorigin=anonymous>
-    <style>
-
-        img#space-logo {
-            max-height: 75px;
-        }
-        div.space-box {
-            min-height: 250px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
     <template id="space-block">
         <div class="column is-one-quarter">
-            <div class="box space-box">
-                <p><b id="space-name"></b></p>
-                <!--<figure class="image is-inline-block">
-                    <img id="space-logo" src="https://unsplash.it/64"/>
-                </figure>-->
-                <p id="space-status"></p>
-                <p>Distance: <b id="space-distance"></b> miles</p>
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img id="space-logo" src="https://bulma.io/images/placeholders/1280x960.png">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <p><b id="space-name"><a href=""></a></b></p>
+                        <p id="space-status"></p>
+                        <p>Distance: <b id="space-distance"></b> miles</p>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
     <section class="section">
-        <h1>Other Local Hackspaces</h1>
         <div class="container content">
             <div class="columns is-centered is-multiline" id="spaces"></div>
         </div>
@@ -47,7 +41,8 @@
                 const spaces = Array.from(data).sort((a, b) => a['data']['distance'] - b['data']['distance']);
                 spaces.forEach(function (val, indx) {
                     var obj = $($("template#space-block").html());
-                    obj.find('#space-name').html(val['data']['space']);
+                    obj.find('#space-name a').html(val['data']['space']);
+                    obj.find('#space-name a').attr('href', val['data']['url']);
                     obj.find('#space-distance').html(Math.round(val['distance'] * 100) / 100);
 
                     let status = 'Closed';
