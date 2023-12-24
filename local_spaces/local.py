@@ -62,7 +62,7 @@ def spaces():
                 distance = calculate_distance(source, dest)
                 if distance <= float(current_app.config.get("LOCALSPACES_DISTANCE")):
                     print("Added {0}".format(space["data"]["space"]))
-                    space['distance'] = distance
+                    space["distance"] = distance
                     spaces.append(space)
 
-    return sorted(spaces, key=lambda d: d['distance'])
+    return sorted(spaces, key=lambda d: d["distance"])

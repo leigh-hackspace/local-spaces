@@ -1,4 +1,3 @@
-
 import secrets
 
 from flask import Flask
