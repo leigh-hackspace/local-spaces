@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template, current_app
-from math import radians, cos, sin, asin, sqrt
+import logging
+from math import asin, cos, radians, sin, sqrt
+
 import requests
 from cachetools.func import ttl_cache
+from flask import Blueprint, current_app, render_template
 
 local = Blueprint(
     "local", __name__, template_folder="templates", static_folder="static"
@@ -61,7 +63,9 @@ def spaces():
                 # If its within the radius, add it to the list
                 distance = calculate_distance(source, dest)
                 if distance <= float(current_app.config.get("LOCALSPACES_DISTANCE")):
-                    print("Added {0}".format(space["data"]["space"]))
+                    logging.debug(
+                        "Found {0} within radius".format(space["data"]["space"])
+                    )
                     space["distance"] = distance
                     spaces.append(space)
 
