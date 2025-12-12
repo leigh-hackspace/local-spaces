@@ -14,14 +14,14 @@ files = [
 
 [[package]]
 name = "cachetools"
-version = "5.5.2"
+version = "6.2.3"
 description = "Extensible memoizing collections and decorators"
 category = "main"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 files = [
-    {file = "cachetools-5.5.2-py3-none-any.whl", hash = "sha256:d26a22bcc62eb95c3beabd9f1ee5e820d3d2704fe2967cbe350e20c8ffcd3f0a"},
-    {file = "cachetools-5.5.2.tar.gz", hash = "sha256:1a661caa9175d26759571b2e19580f9d6393969e5dfca11fdb1f947a23e640d4"},
+    {file = "cachetools-6.2.3-py3-none-any.whl", hash = "sha256:3fde34f7033979efb1e79b07ae529c2c40808bdd23b0b731405a48439254fba5"},
+    {file = "cachetools-6.2.3.tar.gz", hash = "sha256:64e0a4ddf275041dd01f5b873efa87c91ea49022b844b8c5d1ad3407c0f42f1f"},
 ]
 
 [[package]]
@@ -550,4 +550,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "090768237384ac2713060ad107e35dcd55640d621ea70cb439996d302a3ae35b"
+content-hash = "ab61cffadae3ce85fcc37f9c03acc0c6b20c81f4570f0ccdcdde82be713f23f6"
