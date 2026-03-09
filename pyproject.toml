@@ -12,7 +12,7 @@ python = "^3.11"
 Flask = "^3.0.0"
 requests = "^2.31.0"
 prometheus-flask-exporter = "^0.23.0"
-cachetools = "^5.3.2"
+cachetools = "^7.0.0"
 
 
 [tool.poetry.group.test.dependencies]
